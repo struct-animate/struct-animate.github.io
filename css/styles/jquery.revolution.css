@@ -1,0 +1,297 @@
+/*----------------------------------------------------------------------------- 
+
+	-	kenburn slider -
+
+Screen Stylesheet 
+
+version:   	1.0 
+date:      	09/18/11 
+author:		themepunch
+email:     	info@themepunch.com 
+website:   	http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+
+
+.slider {
+	border-bottom:1px solid #ebebeb;
+	background-color:#fdfdfd;
+	width:100%;
+	padding:0;
+	position:relative;
+	max-height:493px;
+	border-radius:5px 5px 0 0;
+	-moz-border-radius:5px 5px 0 0;
+	-webkit-border-radius:5px 5px 0 0;
+}
+
+.tp-simpleresponsive .caption {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	-moz-opacity:0;
+	-khtml-opacity:0;
+	opacity:0;
+	position:absolute;
+}
+
+
+/*************************
+	-	CAPTIONS	-
+**************************/
+
+
+.caption.w5 {width:5%;}
+
+.caption.w10 {width:10%;}
+
+.caption.w15 {width:15%;}
+
+.caption.w20 {width:20%;}
+
+.caption.w25 {width:25%;}
+
+.caption.w30 {width:30%;}
+
+.caption.w35 {width:35%;}
+
+.caption.w40 {width:40%;}
+
+.caption.w45 {width:45%;}
+
+.caption.w50 {width:50%;}
+
+.caption.w55 {width:55%;}
+
+.caption.w60 {width:60%;}
+
+.caption.w65 {width:65%;}
+
+.caption.w70 {width:70%;}
+
+.caption.w75 {width:75%;}
+
+.caption.w80 {width:80%;}
+
+.caption.w85 {width:85%;}
+
+.caption.w90 {width:90%;}
+
+.caption.w95 {width:95%;}
+
+.caption.w100 {width:100%;}
+
+/************************
+	-	NAVIGATION	-
+*************************/
+
+/** BULLETS **/
+.tp-bullets	{
+	background:#363636 url(../../images/bg_sharp.png) repeat 0 0;
+	list-style:none;
+	position:absolute;
+	left:auto !important;
+	right:87px !important;
+	bottom:16px !important;
+	padding:12px;
+	margin:0;
+	z-index:10;
+	-webkit-transition:opacity .3s ease-in-out;
+	-moz-transition:opacity .3s ease-in-out;
+	-ms-transition:opacity .3s ease-in-out;
+	-o-transition:opacity .3s ease-in-out;
+	transition:opacity .3s ease-in-out;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	z-index:999 !important;
+}
+
+.tp-bullets.simplebullets.navbar {
+	bottom:-20px;
+	height:35px; 
+	padding:0px 0px; 
+	-webkit-border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	border-radius: 5px;
+	margin-top:-17px;
+}
+
+.tp-bullets.simplebullets .bullet:first-child {margin:0;}
+
+.tp-bullets.simplebullets .bullet {
+	background-color:#ffffff;
+	display:block;
+	width:12px;
+	height:12px;
+	margin:0 0 0 8px;
+	position:relative;
+	float:left; 
+	cursor:pointer; 
+	text-indent:-9999px;
+	border-radius:6px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	-webkit-transition:background-color .3s ease-in-out;
+	-moz-transition:background-color .3s ease-in-out;
+	-ms-transition:background-color .3s ease-in-out;
+	-o-transition:background-color .3s ease-in-out;
+	transition:background-color .3s ease-in-out;
+}
+
+/*************************************
+	-	TP ARROWS 	-
+**************************************/
+
+
+.tp-leftarrow, 
+.tp-rightarrow {
+	background:#363636 url(../../images/bg_sharp.png) repeat 0 0;
+	position:absolute;
+	bottom:16px !important;
+	top:auto !important;
+	left:auto !important;
+	width:32px;
+	height:36px;
+	cursor:pointer;
+}
+
+.tp-leftarrow > span, 
+.tp-rightarrow > span {
+	background:url(../../images/arrow_slide.png) no-repeat 12px -21px;
+	display:block;
+	width:32px;
+	height:36px;
+}
+
+.tp-leftarrow {
+	right:54px !important;
+	border-radius:5px 0 0 5px;
+	-moz-border-radius:5px 0 0 5px;
+	-webkit-border-radius:5px 0 0 5px;
+	box-shadow:-1px 0 0 rgba(0, 0, 0, .3) inset;
+	-moz-box-shadow:-1px 0 0 rgba(0, 0, 0, .3) inset;
+	-webkit-box-shadow:-1px 0 0 rgba(0, 0, 0, .3) inset;
+	z-index:999 !important;
+}
+
+.tp-leftarrow > span {background-position:11px 12px;}
+
+.tp-rightarrow {
+	right:22px !important;
+	border-radius:0 5px 5px 0;
+	-moz-border-radius:0 5px 5px 0;
+	-webkit-border-radius:0 5px 5px 0;
+	box-shadow:1px 0 0 rgba(255, 255, 255, .1) inset;
+	-moz-box-shadow:1px 0 0 rgba(255, 255, 255, .1) inset;
+	-webkit-box-shadow:1px 0 0 rgba(255, 255, 255, .1) inset;
+	z-index:999 !important;
+}										
+
+.tp-leftarrow:hover,
+.tp-rightarrow:hover {
+	opacity:1;
+	filter:alpha(opacity=100);
+}
+
+/************************************
+		-	TP BANNER TIMER		-
+*************************************/
+.tp-bannertimer {
+	display:none;
+	width:100%;
+	height:5px;
+	background:url(../../images/timer.png);
+	position:absolute;
+	bottom:-4px;
+	z-index:200;
+}
+
+/***************************************
+	-	RESPONSIVE SETTINGS 	-
+****************************************/	
+	
+	
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+ }  
+
+
+  
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+	.responsive .tp-bullets.tp-thumbs {
+		width:300px !important;
+		height:30px !important;
+	}
+	.responsive .tp-bullets.tp-thumbs .tp-mask {
+		width:300px !important;
+		height:30px !important;
+	}
+	.responsive .tp-bullets.tp-thumbs .bullet {
+		width:60px !important;
+		height:30px !important;
+	}
+
+}
+
+@media only screen and (min-width: 0px) and (max-width: 479px) {
+
+	.responsive .tp-bullets {display:none}
+	.responsive .tparrows {display:none;}
+	
+}
+ 
+/*********************************************
+
+	-	BASIC SETTINGS FOR THE BANNER	-
+
+***********************************************/
+
+ .tp-simpleresponsive img {
+	-moz-user-select: none; 
+	-khtml-user-select: none; 
+	-webkit-user-select: none; 
+	-o-user-select: none; 
+}
+
+.tp-simpleresponsive ul {
+	list-style:none;
+	display:block;
+	width:100%;
+	height:100%;
+	padding:0;
+	margin:0;
+}			
+
+.tp-simpleresponsive > ul > li {
+	width:100%;
+	height:100%;
+	position:absolute;
+	visibility:hidden;
+	overflow:hidden;
+	border-radius:5px 5px 0 0;
+	-moz-border-radius:5px 5px 0 0;
+	-webkit-border-radius:5px 5px 0 0;
+}
+
+/*  CAPTION SLIDELINK   **/
+.caption.slidelink a div {
+	width:10000px;
+	height:10000px;
+}  
+
+.tp-loader {
+	background:url(../../images/loader.gif) no-repeat 0 0;
+	margin:-2.5px -20px;
+	top:50%;
+	left:50%;
+	z-index:10000;
+	position:absolute;
+	width:40px;
+	height:5px; 
+}
+
+.fullwidthbanner .caption,
+.fullwidthbanner > ul > li {visibility:hidden;}
+
+.fullwidthbanner.tp-simpleresponsive .caption,
+.fullwidthbanner .tp-simpleresponsive > ul > li {visibility:visible;}

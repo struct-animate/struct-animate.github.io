@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Les piles</title>
+        <!--<link rel="stylesheet" href="libs/jquery/jquery-ui-1.10.0.custom.css" />
+        <script src="libs/jquery/jquery-1.9.0.js"></script>
+        <script src="libs/jquery/jquery-ui-1.10.0.custom.js"></script>
+        <script src="libs/jquery/jquery.fullscreen.js"></script>
+        <script src="libs/lib.js"></script>
+        <script src="libs/ui.js"></script>
+        <script src="pile.js"></script>-->
+    </head>
+    <body>
+	   <div id="error" style="display: none; height: 264px; margin-top: -132px; position: absolute; top: 50%; width: 80%; left: 50%; margin-left: -40%;  vertical-align: middle; line-height: 50px; border: 3px solid black; font-size: 25px;background-image: url('../libs/error_black.png');background-repeat: no-repeat;
+background-color : #EEE; border-radius : 25px">
+            <div style="padding-left: 300px;">
+            Votre navigateur est obsolète. Veuillez utiliser un navigateur récent. </br>
+            Vous pouvez télécharger une nouvelle version de la liste si-dessous : </br>
+            Google Chrome   : <a href="http://www.google.com/intl/fr/chrome/browser/" > chrome </a></br>
+            Mozilla Firefox : <a href="https://download.mozilla.org/?product=firefox-20.0&os=win&lang=fr" > firefox </a></br>
+            Opera           : <a href="http://www.opera.com/fr/" > opera </a></br>
+            </div>
+        </div>
+        <div id="ui" style="display: none;">
+            <div id="top">
+                <div id="titlebar">Les piles</div>
+                <!--<select id="nav-menu">
+                    <option>aaa</option>
+                    <option>bbb</option>
+                </select>-->
+                <div id="toolbar">
+                    <!-- controls: zoom, [], ? ... -->
+                    <div id="ctrls">
+                        <button id="aff-options">Options</button>
+                        <div id="zoom">
+                            <button id="zoom-p">Zoom avant</button>
+                            <button id="zoom-reset"><small>*</small>1</button>
+                            <button id="zoom-m">Zoom arrière</button>
+                        </div>
+                        <button id="fullscreen">Plain écran</button>
+                        <button id="aff-aide">Aide</button>
+                    </div>
+                    <!-- buttons row 0: animation ctrls -->
+                    <div>
+                        <table><tbody><tr>
+                            <td>
+                                <input type="checkbox" checked="checked" id="aff-algo" />
+                                <label for="aff-algo">L'algorithme</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" checked="checked" id="aff-comment" />
+                                <label for="aff-comment">Les commentaires</label>
+                            </td>
+                            <td><div id="vitesse"></div></td>
+                            <td><div id="val-vitesse">x1</div></td>
+                            <td>
+                                <button id="pause">pause</button>
+                            </td>
+                        </tr></tbody></table>
+                    </div>
+                    <!-- buttons row 1: application buttons -->
+                    <div>
+                        <table><tbody><tr>
+                            <td><button id="empiler">Empiler</button></td>
+                            <td><button id="depiler">Depiler</button></td>
+                        </tr></tbody></table>
+                    </div>                    
+                    <!-- buttons row 2, 3 ...? -->
+                </div><!-- end-toolbar -->
+            </div><!-- end-top -->
+            <div id="bottom">
+                <div id="bottom-left">
+                    <div id="output">
+                        <canvas id='canvas' style = "position: absolute;"></canvas>
+                    </div>
+                </div>
+                <div id="algo">
+				<div id="aff-cacher-algo"></div>
+                    <div id="algos" style="font-size:16px">
+                        <h3>Empiler</h3>
+                        <!--
+                            Ce div est utiliser par le widget accordion
+                            Ne modifie pas son style
+                        -->
+                        <div>
+                            <!-- l'algorithme -->
+                            <div id="algo-empiler">
+                                <div>	
+								 <br /><br />								
+						         Empiler(P:PILE, X:Typeqlq)<br />{<br /> <div style="margin-left:10px">SI NON Pilepleine(P) {</div><div id='empil' style="margin-left:25px">P.Sommet := P.Sommet + 1<br />P.Elements(P.Sommet) := X <br /></div><div id='pilePleine' style="margin-left:10px">}<br />SINON</div> <div style="margin-left:25px"> Ecrire("La pile est pleine.Overflow !!") </div><div style="margin-left:10px">FSI </div>}<br /><br />		
+						        </div>
+                            </div>
+                        </div>
+                        <h3>depiler</h3>
+                        <!--
+                            Ce div est utiliser par le widget accordion
+                            Ne modifie pas son style
+                        -->
+                        <div>
+                            <!-- l'algorithme -->
+                            <div id="algo-depiler">
+                                <div>
+								<br /><br />
+						         Depiler (P:PILE, X:Typeqlq)<br />{<br /><div style="margin-left:10px"> SI NON Pilevide (P) {</div><div id='depil' style="margin-left:25px">X := P.Elements ( P.Sommet )<br /> P.Sommet := P.Sommet – 1 <br /></div><div style="margin-left:10px">}<br />SINON</div> <div id='pileVide' style="margin-left:25px"> Ecrire("La pile est vide !!") </div><div style="margin-left:10px">FSI </div>}<br /><br />
+						         </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- la zone des fenetres  -->
+            <div style="display: none;">
+                 <div id="aide">				 <br />				
+          <p>La fenêtre dans laquelle se déroule l’animation est comme suit :
+          </p>				<br />		         
+          <img src="../libs/Capture2.png"  style="margin:0 auto;display:block ;"/>				 
+          <p>				    <br />				    Pendant l’animation les boutons des opérations cédent leur places pour que d' 					autres (celui de l’affichage, du pseudo ou du commentaire et de la vitesse,…) apparaîssent.  					Comme la montre la figure : 					 				
+          </p>				 <br />				 
+          <img src="../libs/Capture2.1.png" style="margin:0 auto;display:block ;"/>                
+        </div>
+		<div id="options">
+                    <h4>Zoom</h4>
+                    <input id="options-zoom-auto" type="checkbox" />
+                    <label for="options-zoom-auto">Redimentionner automatiquement la zone de l'animation</label>
+                    <h4>L'animation</h4>
+                    <table><tbody>
+                        <tr><td>
+                            <input type="checkbox" checked="checked" id="options-aff-algo" />
+                            <label for="options-aff-algo">afficher l'algorithme</label>
+                        </td></tr>
+                        <!--<tr><td>
+                            <input type="checkbox" id="options-cacher-algo" />
+                            <label for="options-cacher-algo">cacher l'algorithme aprés l'animation</label>
+                        </td></tr>-->
+                        <tr><td>
+                            <input type="checkbox" checked="checked" id="options-aff-comment" />
+                            <label for="options-aff-comment">afficher les commentaires de l'animation</label>
+                        </td></tr>
+                    </tbody></table>
+                    <h4>La vitesse</h4>
+                    <table><tbody>
+                        <tr>
+                            <td><div id="options-vitesse"></div></td>
+                            <td><div id="options-val-vitesse">1x</div></td>
+                        </tr>
+                    </tbody></table>
+                    <table><tbody>
+                        <tr><td>
+                            <input type="checkbox" id="options-vitesse-1" />
+                            <label for="options-vitesse-1">Remettre la vitesse à 1 automatiquement</label>
+                        </td></tr>
+                    </tbody></table>
+                </div>
+                <div id="ma-fenetre">
+                    Veillez entrer une valeur numérique s.v.p.
+                </div>
+                <div id="principe">
+                      <h1>Les piles</h1>
+					  <p> Une <em style="font-size:24px;color:red">pile</em> est une collection (ensemble) d'éléments gérée en <strong><em style="color:green">LIFO</em></strong> (Last In First Out) - stack(en anglais) - elle est utilisée dans:<br /> 
+					  <ul>
+					  <li>La gestion des imbrications.</li>
+					  <li>La compilation.</li>
+					  <li>La récursivité et l'évaluation d'expressions.</li>
+					  <li>autres ... </li>
+					  </ul>
+					  
+					  <h2> L'empilement :</h2>
+					  <p>
+						 C'est l'ajout des éléments au sommet de la pile .
+					  </p>
+					  <h2> Le dépilement :</h2>
+					  <p>
+					     C'est la supression de l'élément qui se trouve au sommet de la pile .
+					  </p>
+					  </p> 	
+                					  
+                </div>
+            </div>
+        </div>
+		
+		 <script src="../libs/modernizr.js"></script>
+        <script>
+            if (Modernizr.fontface && Modernizr.borderradius && Modernizr.boxshadow 
+                && Modernizr.opacity && Modernizr.rgba && Modernizr.textshadow 
+                && Modernizr.cssanimations && Modernizr.cssgradients && Modernizr.csstransforms 
+                && Modernizr.csstransitions && Modernizr.canvas){
+                Modernizr.load("../libs/jquery/jquery-ui-1.10.0.custom.css");
+                Modernizr.load("../libs/jquery/jquery-1.9.0.js");
+                Modernizr.load("../libs/jquery/jquery-ui-1.10.0.custom.js");
+                Modernizr.load("../libs/jquery/jquery.fullscreen.js");
+                Modernizr.load("../libs/lib.js");
+                Modernizr.load("../libs/ui.js");
+                Modernizr.load("pile.js");
+            } else {
+                document.body.style["background-color"] = "#CCC"; 
+                var e = document.getElementById('error');
+                e.style.display = "block";
+                e.style["background-color"] = "#EEE";
+            }
+        </script>
+    </body>
+</html>

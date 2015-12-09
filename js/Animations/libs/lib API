@@ -1,0 +1,28 @@
+
+`toNumber` takes a value given as `numeric` parameter and tries to turn
+it into a number. If it is not possible it returns 0 (or other value
+given as `fallback`).
+
+function toNumber(numeric, fallback);
+
+`toInt` = parseInt(toNumber(...))
+function toInt(numeric, fallback);
+    
+`$` returns first element for given CSS `selector` in the `context` of
+the given element or whole document.
+function $(selector, context);
+
+`$$` return an array of elements for given CSS `selector` in the `context` of
+the given element or whole document.
+function $$(selector, context);
+
+`Queue`
+Create a Queue with the folowing methods
+ * .enQueue(function, waitTime)
+ * .enQueueTask(taskConstructor, waitTime)
+ * .pause()
+ * .launch()
+ * .wait(time)
+
+`Rect`
+ * .animate(conf) ...

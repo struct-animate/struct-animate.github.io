@@ -1,0 +1,27 @@
+/*
+
+#output {
+    position: relative;
+    background: #F5F5F5;
+    height: 400px;
+    width: 800px;
+}
+#output > div:after {
+    content: "hidden";
+    opacity: 0;
+    display: block;
+    position: absolute;
+    height: 150%;
+    width: 150%;
+    top: -25%;
+    left: -25%;
+}
+*/
+
+.ui-tooltip-content {
+    font-size: 0.7em;
+}
+
+#output > div:after {
+	position: absolute;
+	}

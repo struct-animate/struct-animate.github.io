@@ -1,0 +1,21 @@
+span.dropcap2,  
+.button,
+.button > span, 
+.button_medium,
+.button_medium >span,  
+.button_large,  
+.button_large > span, 
+.cmsmsLike, 
+.cmsms_close_video, 
+#slide_top,
+.cmsms_slides_nav,
+a.cmsms_prev_slide,
+a.cmsms_next_slide,
+.cmsms_rounding, 
+.widget_custom_popular_portfolio_entries figure img,
+.tp-bullets,
+.tp-leftarrow, 
+.tp-rightarrow{behavior:url(css/styles/pie.htc);}
+
+.p_options_block .button, 
+.p_options_block .button span {behavior:none;}

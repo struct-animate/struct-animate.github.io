@@ -1,0 +1,123 @@
+/* Style Changer */
+
+#stlChanger {
+	color:#010101;
+	font-size:1em;
+	overflow:hidden;
+	position:fixed;
+	top:200px;
+	left:0;
+	z-index:20;
+}
+
+#stlChanger .siteChanger, #stlChanger .bgChanger, #stlChanger .buts {
+	position:relative;
+	overflow:hidden;
+}
+
+#stlChanger .siteChanger, #stlChanger .bgChanger {
+	min-width:35px;
+	min-height:100px;
+}
+
+#stlChanger a {
+	color:#010101;
+	text-decoration:none;
+}
+
+#stlChanger a:hover {text-decoration:none;}
+
+#stlChanger .blockChanger {
+	width:120px;
+	padding:0 36px 5px 0;
+}
+
+#stlChanger .chBody {
+	border-top:1px solid #ececec;
+	border-bottom:1px solid #ececec;
+	border-right:1px solid #ececec;
+	background:#fefefe;
+	width:100px;
+	padding:0 9px 12px 10px;
+	position:relative;
+	overflow:hidden;
+	border-radius:0 2px 2px 0;
+	-moz-border-radius:0 2px 2px 0;
+	-o-border-radius:0 2px 2px 0;
+	-webkit-border-radius:0 2px 2px 0;
+}
+
+#stlChanger .chBut {
+	border-top:1px solid #ececec;
+	border-bottom:1px solid #ececec;
+	border-right:1px solid #ececec;
+	background:#fefefe url(images/arrow.png) 14px 16px no-repeat;
+	width:35px;
+	height:40px;
+	position:absolute;
+	top:24px;
+	right:1px;
+	z-index:10;
+	border-radius:0 2px 2px 0;
+	-moz-border-radius:0 2px 2px 0;
+	-o-border-radius:0 2px 2px 0;
+	-webkit-border-radius:0 2px 2px 0;
+}
+
+#stlChanger .chBut.closed {background-position:15px -33px;}
+
+#stlChanger .stBlock {
+	position:relative;
+	overflow:hidden;
+}
+
+#stlChanger span {
+	font-size:10px;
+	text-transform:uppercase;
+	display:block;
+	padding:3px 0;
+}
+
+#stlChanger .hdrCols,
+#stlChanger .stBgs {width:102px;}
+
+#stlChanger .hdrCols span,
+#stlChanger .stBgs a  {
+	border:1px solid transparent;
+	text-decoration:none;
+	width:28px;
+	height:28px;
+	float:left;
+	padding:0;
+	margin:0 4px 4px 0;
+	cursor:pointer;
+}
+
+#stlChanger .hdrCols span.current,
+#stlChanger .stBgs a.current {
+	border:1px solid #010101;
+}
+
+#stlChanger .stColorParent {
+	position:relative;
+	overflow:hidden;
+	margin-bottom:8px;
+}
+
+#stlChanger a.stColor2 {
+	color:#7c7c7c;
+	display:block;
+	float:left;
+	position:relative;
+	overflow:hidden;
+}
+
+#stlChanger a.stColor2 span {
+	background:url(images/picker.png) no-repeat 42px 10px;
+	border:1px solid #000000;
+	width:97px;
+	height:38px;
+	padding:0;
+	margin:0;
+}
+

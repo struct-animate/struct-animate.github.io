@@ -1,0 +1,70 @@
+.p_options_block, 
+.p_filter_container:hover ul.p_filter {filter:alpha(opacity=100);}
+
+.p_filter_container ul.p_filter, 
+.cmsms-form-builder .check_parent input[type="checkbox"], 
+.cmsms-form-builder .check_parent input[type="radio"], 
+.loading {filter:alpha(opacity=0);}
+
+.button, 
+.button_medium, 
+.button_large, 
+.dropcap2,
+.tabs li a.current, 
+.related_posts > ul > li a.current,
+.tour li a, 
+.comment-reply-link,
+.cmsmsLike,
+.cmsms_rounding {
+	position:relative;
+	z-index:0;
+}
+
+div.p_filter {height:1000px;}
+
+.p_filter_container ul.p_filter {top:32px;}
+
+.button span, 
+.button_medium span, 
+.button_large span {transition:none;}
+
+.button, 
+.button_medium, 
+.button_large {margin-right:3px;}
+
+.cmsms-form-builder .check_parent input[type="radio"]+label, 
+.cmsms-form-builder .check_parent input[type="checkbox"]+label {background-image:none;}
+
+.cmsms-form-builder .check_parent input[type="radio"],  
+.cmsms-form-builder .check_parent input[type="checkbox"] {
+	filter:alpha(opacity=100);
+	margin-top:11px;
+}
+
+.cmsms_slider_video.hidden {display:none;}
+
+@media only screen and (min-width: 541px) and (max-width: 767px) {
+	
+	.widget_colored.four_box,
+	.one_fourth, 
+	.one_fourth.last,  
+	.one_fourth+.one_fourth, 
+	.one_fourth+.one_fourth+.one_fourth, 
+	.one_fourth+.one_fourth+.one_fourth+.one_fourth, 
+	.portfolio_container.two_blocks .portfolio, 
+	.portfolio_container.four_blocks .portfolio:nth-child(odd), 
+	.portfolio_container.four_blocks .portfolio:nth-child(even), 
+	.format-album.four_blocks .resize .cmsms_media_box:nth-child(odd), 
+	.format-album.four_blocks .resize .cmsms_media_box:nth-child(even), 
+	.post_type_shortcode.four_blocks article:nth-child(odd), 
+	.post_type_shortcode.four_blocks article:nth-child(even),
+	.cms_archive li:nth-child(odd),  
+	.cms_archive li:nth-child(even), 
+	.sitemap > li > ul > li:nth-child(odd),
+	.sitemap > li > ul > li:nth-child(even) {
+		width:100%;
+		float:none;
+		padding-right:0;
+	}
+	
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Les LLC non ordonnées</title>
+       <!-- <link rel="stylesheet" href="libs/jquery/jquery-ui-1.10.0.custom.css" />
+        <script src="libs/jquery/jquery-1.9.0.js"></script>
+        <script src="libs/jquery/jquery-ui-1.10.0.custom.js"></script>
+        <script src="libs/jquery/jquery.fullscreen.js"></script>
+        <script src="libs/lib.js"></script>
+        <script src="libs/ui.js"></script>
+        <script src="LLc_nonOrdonne.js"></script> -->
+    </head>
+    <body>
+	     <div id="error" style="display: none; height: 264px; margin-top: -132px; position: absolute; top: 50%; width: 80%; left: 50%; margin-left: -40%;  vertical-align: middle; line-height: 50px; border: 3px solid black; font-size: 25px;background-image: url('../libs/error_black.png');background-repeat: no-repeat;
+background-color : #EEE; border-radius : 25px">
+            <div style="padding-left: 300px;">
+            Votre navigateur est obsolète. Veuillez utiliser un navigateur récent. </br>
+            Vous pouvez télécharger un nouvelle version de la liste si-dessous : </br>
+            Google Chrome   : <a href="http://www.google.com/intl/fr/chrome/browser/" > chrome </a></br>
+            Mozilla Firefox : <a href="https://download.mozilla.org/?product=firefox-20.0&os=win&lang=fr" > firefox </a></br>
+            Opera           : <a href="http://www.opera.com/fr/" > opera </a></br>
+            </div>
+        </div>
+        <div id="ui" style="display: none;">
+            <div id="top">
+                <div id="titlebar">LLC unidirectionelle non ordonnée</div>
+                <!--<select id="nav-menu">
+                    <option>aaa</option>
+                    <option>bbb</option>
+                </select>-->
+                <div id="toolbar">
+                    <!-- controls: zoom, [], ? ... -->
+                    <div id="ctrls">
+                        <button id="aff-options">Options</button>
+                        <div id="zoom">
+                            <button id="zoom-p">Zoom avant</button>
+                            <button id="zoom-reset"><small>*</small>1</button>
+                            <button id="zoom-m">Zoom arrière</button>
+                        </div>
+                        <button id="fullscreen">Plain écran</button>
+                        <button id="aff-aide">Aide</button>
+                    </div>
+                    <!-- buttons row 0: animation ctrls -->
+                    <div>
+                        <table><tbody><tr>
+                            <td>
+                                <input type="checkbox" checked="checked" id="aff-algo" />
+                                <label for="aff-algo">Le principe</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" checked="checked" id="aff-comment" />
+                                <label for="aff-comment">Les commentaires</label>
+                            </td>
+                            <td><div id="vitesse"></div></td>
+                            <td><div id="val-vitesse">x1</div></td>
+                            <td>
+                                <button id="pause">pause</button>
+                            </td>
+                        </tr></tbody></table>
+                    </div>
+                    <!-- buttons row 1: application buttons -->
+                    <div>
+                        <table><tbody><tr>
+                            <td><button id="inserer">Inserer</button></td>
+                            <td><button id="rechercher_val">Rech. par val</button></td>
+							<td><button id="rechercher_adr">Rech. par adr</button></td>
+						    <td><button id="supprimer">Supprimer</button></td>
+							<td><button id="trier">Trier</button></td>
+							<td><button id="fusion">Fusionner</button></td>
+							<td><button id="start_fusion">Appliquer</button></td>
+                        </tr></tbody></table>
+                    </div>                    
+                    <!-- buttons row 2, 3 ...? -->
+                </div><!-- end-toolbar -->
+            </div><!-- end-top -->
+            <div id="bottom">
+                <div id="bottom-left">
+                    <div id="output">
+                        <canvas id='canvas' style = "position: absolute;"></canvas>
+                    </div>
+                </div>
+                <div id="algo">
+				<div id="aff-cacher-algo"></div>
+                    <div id="algos" style="font-size:16px">
+                        
+                        <h3>rechercher</h3>
+                        <div  class="algo" >
+                            <!-- l'algorithme -->
+                            <div>
+                                <div>
+									<br /><br /> -Consiste à parcourir la liste (<em style="color:green">séquentiellement</em>) à partir de la tête et comparer la valeur recherchée avec celle de chaque maillon.On s'arrêtte dés qu'on la trouve ou on arrive à la fin de liste.<br />Ou bien une recherche par adresse</div>
+                            </div>
+                        </div>
+						<h3>Inserer</h3>
+                        <!--
+                            Ce div est utiliser par le widget accordion
+                            Ne modifie pas son style
+                        -->
+                        <div class="algo" >
+                            <!-- l'algorithme -->
+                            <div>
+								<br /><br /> - L'insertion se fait toujours à la fin de la liste avec mise à jours de l'<em style="color:green">@</em> de l'élément précédent .</p>
+                            </div>
+                        </div>
+						<h3>supprimer</h3>
+						<div class="algo" >
+						   <div >
+						    <br /><br />
+							- On recherche l'élément à supprimer,si on le trouve pas on s'arrête.<br />
+							- Sinon ,on supprime le maillon contenant la valeur concernée et on fait le chainage suivant : 
+							<br /><br /><em style="color:green">précédent</em>(maillon supprimé)<em style="color:red"> --> </em><em style="color:green">suivant</em>(maillon supprimé).
+							 sauf si le maillon contenant la valeur est<em style="color:green"> la tête</em> (pas de précédent),ou si c'est le dernier maillon de la liste (pas de suivant). 
+						   </div>
+						</div>
+						<h3>Trier</h3>
+						<div class="algo" >
+						 <br /><br /> - Le tri se fait comme dans les tableux avec mises à jours des <em style="color:green">@</em> .<br /> On choisit le <em style="color:green">tri par bulles</em>
+						</div>
+						<h3>Fusionner</h3>
+						<div class="algo" >
+						  <br /><br /> - La fusion se fait aprés remplissage d'une deuxième liste .<br /> - Elle consiste tout simplement à créer la nouvelle liste à partir de ces 2 listes en prenant élément par élément (ie: le premier élément de la liste résultante est le premier de l’une des 2 listes, le deuxième est le premier de l’autre liste … etc ). 
+						</div>
+                    </div>
+                </div>
+            </div>
+            <!-- la zone des fenetres  -->
+            <div style="display: none;">
+                 <div id="aide">				 <br />				
+          <p>La fenêtre dans laquelle se déroule l’animation est comme suit :
+          </p>				<br />		         
+          <img src="../libs/Capture2.png"  style="margin:0 auto;display:block ;"/>				 
+          <p>				    <br />				    Pendant l’animation les boutons des opérations cédent leur places pour que d' 					autres (celui de l’affichage, du pseudo ou du commentaire et de la vitesse,…) apparaîssent.  					Comme la montre la figure : 					 				
+          </p>				 <br />				 
+          <img src="../libs/Capture2.1.png" style="margin:0 auto;display:block ;"/>                
+        </div>
+		<div id="options">
+                    <h4>Zoom</h4>
+                    <input id="options-zoom-auto" type="checkbox" />
+                    <label for="options-zoom-auto">Redimentionner automatiquement la zone de l'animation</label>
+                    <h4>L'animation</h4>
+                    <table><tbody>
+                        <tr><td>
+                            <input type="checkbox" checked="checked" id="options-aff-algo" />
+                            <label for="options-aff-algo">afficher le principe</label>
+                        </td></tr>
+                        <!--<tr><td>
+                            <input type="checkbox" id="options-cacher-algo" />
+                            <label for="options-cacher-algo">cacher l'algorithme aprés l'animation</label>
+                        </td></tr>-->
+                        <tr><td>
+                            <input type="checkbox" checked="checked" id="options-aff-comment" />
+                            <label for="options-aff-comment">afficher les commentaires de l'animation</label>
+                        </td></tr>
+                    </tbody></table>
+                    <h4>La vitesse</h4>
+                    <table><tbody>
+                        <tr>
+                            <td><div id="options-vitesse"></div></td>
+                            <td><div id="options-val-vitesse">1x</div></td>
+                        </tr>
+                    </tbody></table>
+                    <table><tbody>
+                        <tr><td>
+                            <input type="checkbox" id="options-vitesse-1" />
+                            <label for="options-vitesse-1">Remettre la vitesse à 1 automatiquement</label>
+                        </td></tr>
+                    </tbody></table>
+                </div>
+                <div id="ma-fenetre">
+                    Veillez entrer une valeur numerique s.v.p.
+                </div>
+                <div id="principe">
+					<h2>Définition :</h2>
+                    <p>
+					.    Une <em style="font-size:20px;color:red">Liste Linéaire Chainée</em> est une structure de données (le plus souvent <em style="color:green">dynamique</em>) pour représenter un ensemble de valeurs. Ces valeurs sont stockées dans des maillons chainées entre elles formant une suite.
+
+							<br /><br />- L'adresse du 1er maillon (<em style="color:red">la tête</em> doit toujours etre sauvegardée pour pouvoir manipuler la liste.
+							 <br >- Le champs adr du dernier maillon contient le pointeur <em style="color:red">NIL</em> (indiquant par conventionla fin de la liste).
+							<br />- Si la liste est vide (ne contient aucun maillon), la tete doit alors etre positionnée à <em style="color:red">NIL</em>.					
+					</p>
+					  Dans une LLC non ordonnée :
+					<p>
+							  - La recherche d'un élément se fait par valeur ( <em style="color:green">séquentiel</em> ) ou par adresse . 
+						<br />- L'insertion se fait toujours à la fin de la liste avec mise à jours de l'<em style="color:green">@</em> de l'élément précédent .
+						<br />- La suppression se fait en effectuant le chainage entre le précédent de l'élément à supprimer et le suivant de ce même élément .
+						<br />- Le tri se fait comme dans les tableux avec mises à jours des <em style="color:green">@</em> .
+						<br />- La fusion se fait aprés remplissage d'une deuxième liste .
+					</p>               
+                </div>                
+            </div>
+        </div>
+		
+		 <script src="../libs/modernizr.js"></script>
+        <script>
+            if (Modernizr.fontface && Modernizr.borderradius && Modernizr.boxshadow 
+                && Modernizr.opacity && Modernizr.rgba && Modernizr.textshadow 
+                && Modernizr.cssanimations && Modernizr.cssgradients && Modernizr.csstransforms 
+                && Modernizr.csstransitions && Modernizr.canvas){
+                Modernizr.load("../libs/jquery/jquery-ui-1.10.0.custom.css");
+                Modernizr.load("../libs/jquery/jquery-1.9.0.js");
+                Modernizr.load("../libs/jquery/jquery-ui-1.10.0.custom.js");
+                Modernizr.load("../libs/jquery/jquery.fullscreen.js");
+                Modernizr.load("../libs/lib.js");
+                Modernizr.load("../libs/ui.js");
+                Modernizr.load("LLc_nonOrdonne.js");
+            } else {
+                document.body.style["background-color"] = "#CCC"; 
+                var e = document.getElementById('error');
+                e.style.display = "block";
+                e.style["background-color"] = "#EEE";
+            }
+        </script>
+    </body>
+</html>

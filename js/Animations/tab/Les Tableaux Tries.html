@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>                   
+  <head>                                 
+    <meta charset="utf-8" />                                 
+    <title>Les tableaux triés                                 
+    </title>              
+    <!--                  
+                <link rel="stylesheet" href="libs/jquery/jquery-ui-1.10.0.custom.css" />                
+            <script src="libs/jquery/jquery-1.9.0.js"></script>                  
+            <script src="libs/jquery/jquery-ui-1.10.0.custom.js"></script>                  
+            <script src="libs/jquery/jquery.fullscreen.js"></script>                  
+            <script src="libs/lib.js"></script>                  
+            <script src="libs/ui.js"></script>                  
+            <script src="tab_tri.js"></script>                    
+                                                    <link rel="stylesheet" href="style.css" />      
+                -->                  
+  </head>                   
+  <body>                               
+    <div id="error" style="display: none; height: 264px; margin-top: -132px; position: absolute; top: 50%; width: 80%; left: 50%; margin-left: -40%;  vertical-align: middle; line-height: 50px; border: 3px solid black; font-size: 25px;background-image: url('../libs/error_black.png');background-repeat: no-repeat;
+			background-color : #EEE; border-radius : 25px">
+            <div style="padding-left: 300px;">
+            Votre navigateur est obsolète. Veuillez utiliser un navigateur récent. <br/>
+            Vous pouvez en télécharger un via les liens ci-dessous : <br/>
+            Google Chrome   : <a href="http://www.google.com/intl/fr/chrome/browser/" > Chrome </a><br/>
+            Mozilla Firefox : <a href="https://download.mozilla.org/?product=firefox-20.0&os=win&lang=fr" > Firefox </a><br/>
+            Opera           : <a href="http://www.opera.com/fr/" > Opera </a><br/>
+       </div>
+   </div>               
+    <div id="ui" style="display: none;">                                                 
+      <div id="top">                                                               
+        <div id="titlebar">Les tableaux triés                                               
+        </div>                                                                                      
+        <div id="toolbar">                                                                             
+          <!-- controls: zoom, [], ? ... -->                                                                                  
+          <div id="ctrls">                                                                                           
+            <button id="aff-options">Options                                                                   
+            </button>                                                                                           
+            <div id="zoom">                                                                                                         
+              <button id="zoom-m">Zoom arrière                                                                             
+              </button>                                                                                                         
+              <button id="zoom-reset"><small>*</small>1                                                                              
+              </button>                                                                                                         
+              <button id="zoom-p">Zoom avant                                                                             
+              </button>                                                                                        
+            </div>                                                                                           
+            <button id="fullscreen">Mode plein écran                                                                   
+            </button>                                                                                           
+            <button id="aff-aide">Aide                                                                   
+            </button>                                                                             
+          </div>                                                                             
+          <!-- animation ctrls -->                                                                                  
+          <div>                                                                                           
+            <table>                                                                            
+              <tbody>                                                                                      
+                <tr>                            <td>                                                                                                                                           
+                    <input type="checkbox" checked="true" id="aff-algo" />                                                                                                                                           
+                    <label for="aff-algo">Le principe                                                                                                           
+                    </label>                            </td>                            <td>                                                                                                                                           
+                    <input type="checkbox" checked="true" id="aff-comment" />                                                                                                                                           
+                    <label for="aff-comment">Les commentaires                                                                                                           
+                    </label>                            </td>                            <td>                                                                                                          
+                    <div id="vitesse">                                                                                                          
+                    </div></td>                            <td>                                                                                                          
+                    <div id="val-vitesse">x1                                                                                                           
+                    </div></td>                            <td>                                                                                                                                           
+                    <button id="pause" >                    
+                    </button>					  </td>                                                                                                               
+                </tr>                                                                            
+              </tbody>                                                                  
+            </table>                                                                             
+          </div>                                                                             
+          <!-- application buttons -->                                                                                  
+          <div>                                                                                           
+            <table>                                                                            
+              <tbody>                                                                                      
+                <tr>                            <td>                                                                                                            
+                    <button id="rechercher"> Recherche dichotomique                                                                                                            
+                    </button> </td>                            <td>                                                                                                            
+                    <button id="inserer">    Insertion                                                                                                                        
+                    </button> </td>                            <td>                                                                                                            
+                    <button id="supprimer">  Suppression                                                                                                                      
+                    </button> </td>                            <td>                                                                                                            
+                    <button id="charger">  Chargement aléatoire                                                                                                                      
+                    </button> </td>                                                                                                        
+                </tr>                                                                            
+              </tbody>                                                                  
+            </table>                                                                             
+          </div>                                                               
+        </div>                                                 
+      </div>                                                 
+      <div id="bottom">                                                               
+        <div id="bottom-left">                                                                             
+          <div id="output">                                                                                           
+            <!--here goes the simulation-->                                                                                  
+          </div>                                                               
+        </div>                                                               
+        <div id="algo">                                                                             
+          <div id="aff-cacher-algo">                                  
+          </div>                                                             
+          <div id="algos">           <h3>Recherche</h3>                                                                                             
+            <!--
+                                                                                          Ce div est utiliser par le widget accordion
+                                                                                          Ne modifier pas son style
+                                                                                      -->                                                                         
+            <div>                                                                                     
+              <!-- l'algorithme -->                                                                                                      
+              <div id="algo-recherche">                                                                                                                       
+                                                                                                                                                                                                                                               
+                <p>Le but est d'éliminer la moitié du tableau à chaque itération.                   
+                </p>                                       
+                <p>Si la valeur recherchée est égale à la valeur située au milieu, on a terminé.                   
+                </p>                                       
+                <p>Si la valeur lui est supérieure, on continue la recherche dans le sous tableau à droite du milieu.                    
+                </p>                                         
+                <p> Sinon, on recherche dans le sous tableau à gauche.                                                     
+                </p>                  
+                <p>Si à un moment on doit rechercher dans un tableau de taille non positive, on s'arrête.                    
+                </p>                                                                                                                                                                             
+              </div>                                                                                                                               
+                                                                                     
+          </div>                        <h3>Insertion</h3>                                                                                                   
+          <!--
+                                                                                                            Ce div est utiliser par le widget accordion
+                                                                                                            Ne modifie pas son style
+                                                                                                        -->                                                                                                        
+          <div>                                                                                                                 
+            <!-- l'algorithme -->                                                                                                                      
+            <div id="algo-insertion">                                                                                                                             
+              <p>Si l'insertion est encore possible.                   
+              </p>                                       
+              <p>On décale vers la fin du tableau les valeurs d'indices supérieurs ou égalaux à celui qui est retourné par la recherche dichotomique.                   
+              </p>                                       
+              <p>On insére ensuite la valeur.                   
+              </p>                                         
+              <p> On incrémente ensuite la taille.                                                     
+              </p>                                                                                                                                  
+            </div>                                                                                                               
+          </div>                        <h3>Suppression</h3>                                                                                                               
+          <!-- la meme note -->                                                                                                                    
+          <div>                                                                                                                             
+            <div id="algo-suppresion">                                                                                                                                           
+              <p>Si le tableau n'est pas vide.                                          
+                <p>On décale vers le début du tableau les valeurs d'indice supérieurs ou égaux à celui qui est retourné par la recherche dichotomique.                     
+                </p>                                         
+                <p>La valeur est ecrasée.                     
+                </p>                                         
+                <p> On décrémente ensuite la taille.                                                       
+                </p>                                                                                                                                      
+            </div>                                                                                                                     
+          </div>                                                                                                                                
+        </div>                                                                                   
+      </div>                                                                                   
+      <div style="display: none; text-align: justify;">                                                                                                 
+        <!-- la zone des fenetres -->                                                                                               
+        <div id="aide">
+				 <br />
+				<p>La fenêtre dans laquelle se déroule l’animation est comme suit :</p>
+				<br />
+		         <img src="../libs/Capture2.png"  style="margin:0 auto;display:block ;"/>
+				 <p>
+				    <br />
+				    Pendant l’animation les boutons des opérations cédent leur places pour que d'
+					autres (celui de l’affichage, du pseudo ou du commentaire et de la vitesse,…) apparaîssent. 
+					Comme la montre la figure :
+					
+				</p>
+				 <br />
+				 <img src="../libs/Capture2.1.png" style="margin:0 auto;display:block ;"/>
+                </div>				                                     
+        <div id="options">          <h4>Zoom</h4>                                                                    
+          <input id="options-zoom-auto" type="checkbox" />                                                                    
+          <label for="options-zoom-auto">Redimentionner automatiquement la zone de l'animation                                                
+          </label>                    <h4>L'animation</h4>                                                                    
+          <table>                                                       
+            <tbody>                                                                                        
+              <tr><td>                                                                                                            
+                  <input type="checkbox" checked="true" id="options-aff-algo" />                                                                                                            
+                  <label for="options-aff-algo">Afficher l'algorithme                                                                                
+                  </label>                        </td>                                                               
+              </tr>                                                                                        
+              <!--<tr><td>
+                                                                                                      <input type="checkbox" id="options-cacher-algo" />
+                                                                                                      <label for="options-cacher-algo">cacher l'algorithme aprés l'animation</label>
+                                                                                                  </td></tr>-->                                                                                            
+              <tr><td>                                                                                                            
+                  <input type="checkbox" checked="true" id="options-aff-comment" />                                                                                                            
+                  <label for="options-aff-comment">Afficher les commentaires de l'animation                                                                                
+                  </label>                        </td>                                                               
+              </tr>                                                                            
+            </tbody>                                               
+          </table>                    <h4>La vitesse</h4>                                                                    
+          <table>                                                       
+            <tbody>                                                                                        
+              <tr>                            <td>                                                                               
+                  <div id="options-vitesse">                                                                               
+                  </div></td>                            <td>                                                                               
+                  <div id="options-val-vitesse">x1                                                                                
+                  </div></td>                                                                                        
+              </tr>                                                                            
+            </tbody>                                               
+          </table>                                                                    
+          <table>                                                       
+            <tbody>                                                                                        
+              <tr><td>                                                                                                            
+                  <input type="checkbox" id="options-vitesse-1" />                                                                                                            
+                  <label for="options-vitesse-1">Remettre la vitesse à 1 automatiquement                                                                                
+                  </label>                        </td>                                                               
+              </tr>                                                                            
+            </tbody>                                               
+          </table>                                                                                                  
+        </div>                                                                                   
+        <div id="erreur"> Veuillez entrer une valeur numérique s'il vout plaît.                                                                                 
+        </div>    
+        <div id="depas"> Impossible de charger le nombre de valeurs spécifié.                                            
+        </div>                                                                            
+        <div id="principe"> <h1>Les tableaux triés  </h1>                                                                                          
+          <p>La recherche dichotomique est l'atout majeur des tableaux triés.                                                                                
+          </p>                                                                                        
+          <p> L'élimination de la moitié du tableau à chaque itération rend celle-ci trés efficace.                                                                                
+          </p>                                                                                        
+          <p>Néamoins la suppression et la recherche doivent faire des décalages afin de garder le tableaux trié.                                                                                
+          </p>                                                                                
+        </div>                                                                                
+        <div id="vide"> Le tableau est pour le moment vide. Veuillez insèrer des valeurs.                                                                                 
+        </div>                                                                                
+        <div id="plein"> Le tableau est plein.                                                                                  
+        </div>                                                                                         
+      </div>                                                                
+    </div>                                                             
+    </div>                         
+<script src="..\libs\modernizr.js"></script>             
+<script>
+            if (Modernizr.fontface && Modernizr.borderradius && Modernizr.boxshadow 
+                && Modernizr.opacity && Modernizr.rgba && Modernizr.textshadow 
+                && Modernizr.cssanimations && Modernizr.cssgradients && Modernizr.csstransforms 
+                && Modernizr.csstransitions && Modernizr.canvas){
+                Modernizr.load("../style.css");
+                Modernizr.load("../libs/jquery/jquery-ui-1.10.0.custom.css");
+                Modernizr.load("../libs/jquery/jquery-1.9.0.js");
+                Modernizr.load("../libs/jquery/jquery-ui-1.10.0.custom.js");
+                Modernizr.load("../libs/jquery/jquery.fullscreen.js");
+                Modernizr.load("../libs/lib.js");
+                Modernizr.load("../libs/ui.js");
+                Modernizr.load("tab_tri.js");
+            } else {
+                document.body.style["background-color"] = "#CCC"; 
+                var e = document.getElementById('error');
+                e.style.display = "block";
+                e.style["background-color"] = "#EEE";
+            }
+        </script>           
+  </body>

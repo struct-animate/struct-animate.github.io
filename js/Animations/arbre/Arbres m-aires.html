@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>                
+  <head>                            
+    <meta charset="utf-8" />                            
+    <title>Les arbres m-aires                    
+    </title>                            
+    <!--
+            <link rel="stylesheet" href="libs/jquery/jquery-ui-1.10.0.custom.css" />           
+        <script src="libs/jquery/jquery-1.9.0.js"></script>             
+        <script src="libs/jquery/jquery-ui-1.10.0.custom.js"></script>             
+        <script src="libs/jquery/jquery.fullscreen.js"></script>             
+        <script src="libs/lib.js"></script>             
+        <script src="libs/ui.js"></script>             
+        <script src="m-aires.js"></script>
+        -->                                
+    <link rel="stylesheet" href="style.css" />                
+  </head>     
+  <div id="error" style="display: none; height: 264px; margin-top: -132px; position: absolute; top: 50%; width: 80%; left: 50%; margin-left: -40%;  vertical-align: middle; line-height: 50px; border: 3px solid black; font-size: 25px;background-image: url('../libs/error_black.png');background-repeat: no-repeat; 			background-color : #EEE; border-radius : 25px">            
+    <div style="padding-left: 300px;">            Votre navigateur est obsolète. Veuillez utiliser un navigateur récent. 
+      <br/>            Vous pouvez en télécharger un via les liens ci-dessous : 
+      <br/>            Google Chrome   : 
+      <a href="http://www.google.com/intl/fr/chrome/browser/" > Chrome </a>
+      <br/>            Mozilla Firefox : 
+      <a href="https://download.mozilla.org/?product=firefox-20.0&os=win&lang=fr" > Firefox </a>
+      <br/>            Opera           : 
+      <a href="http://www.opera.com/fr/" > Opera </a>
+      <br/>       
+    </div>   
+  </div>                
+  <body>                            
+    <div id="ui" style="display: none;">                                        
+      <div id="top">                                                    
+        <div id="titlebar">Les arbres m-aires                                    
+        </div>                                                                     
+        <div id="toolbar">                                                                
+          <!-- controls: zoom, [], ? ... -->                                                                    
+          <div id="ctrls">                                                                            
+            <button id="aff-options">Options                                                    
+            </button>                                                                            
+            <div id="zoom">                                                                                         
+              <button id="zoom-m">Zoom arrière                                                            
+              </button>                                                                                         
+              <button id="zoom-reset"><small>*</small>1                                                            
+              </button>                                                                                        
+              <button id="zoom-p">Zoom avant                                                            
+              </button>                                                                            
+            </div>                                                                            
+            <button id="fullscreen">Plein écran                                                    
+            </button>                                                                            
+            <button id="aff-aide">Aide                                                    
+            </button>                                                                
+          </div>                                                                
+          <!-- buttons row 0: animation ctrls -->                                                                    
+          <div>                                                                            
+            <table>                                                           
+              <tbody>                                                                   
+                <tr>                            <td>                                                                                                                    
+                    <input type="checkbox" checked="true" id="aff-algo" />                                                                                                                    
+                    <label for="aff-algo">Le principe                                                                                    
+                    </label>                            </td>                            <td>                                                                                                                    
+                    <input type="checkbox" checked="true" id="aff-comment" />                                                                                                                    
+                    <label for="aff-comment">Les commentaires                                                                                    
+                    </label>                            </td>                            <td>                                                                                   
+                    <div id="vitesse">                                                                                   
+                    </div></td>                            <td>                                                                                   
+                    <div id="val-vitesse">x1                                                                                    
+                    </div></td>                            <td>                                                                                                                    
+                    <button id="pause" >                    
+                    </button>                                                                                                                        </td>                                                                                            
+                </tr>                                                           
+              </tbody>                                                   
+            </table>                                                                
+          </div>                                                                
+          <!-- buttons row 1: application buttons -->                                                                    
+          <div>                                                                            
+            <table>                                                           
+              <tbody>                                                                   
+                <tr>                            <td>                                                                                   
+                    <button id="rechercher">Rechercher                                                                                    
+                    </button></td>                            <td>                                                                                   
+                    <button id="inserer">Inserer                                                                                    
+                    </button></td>                            <td>                                                                                   
+                    <button id="supprimer">Supprimer                                                                                    
+                    </button></td>                            <td>                                                                                   
+                    <button id="random">Chargement aléatoire                                                                                  
+                    </button></td>                            <td>                                                                                   
+                    <button id="parcours">Parcours                                                                                    
+                    </button></td>                                                                                            
+                </tr>                                                           
+              </tbody>                                                   
+            </table>                                                                
+          </div>                                                                
+          <div>                                                                            
+            <table>                                                           
+              <tbody>                                                                   
+                <tr>                            <td>                                                                                   
+                    <button id="inordre">Inordre                                                                                    
+                    </button></td>                            <td>                                                                                   
+                    <button id="preordre">Preordre                                                                                    
+                    </button></td>                            <td>                                                                                   
+                    <button id="postordre">Postordre                                                                                    
+                    </button></td>                            <td>                                                                                   
+                    <button id="annuler">Retour                                                                                    
+                    </button></td>                                                                                                                        
+                </tr>                                                           
+              </tbody>                                                   
+            </table>                                                                
+          </div>                                                    
+        </div>                                        
+      </div>                                        
+      <div id="bottom">                                                    
+        <div id="bottom-left">                                                                
+          <div id="output">                                                                            
+            <canvas id='canvas' style = "position: absolute;">                                                   
+            </canvas>                                                                
+          </div>                                                    
+        </div>                                                    
+        <div id="algo">        	                                          
+          <div id="aff-cacher-algo">          
+          </div> 				                                            
+          <div id="algos">                        <h3>Recherche</h3>                                                                            
+            <!--
+                                                                                        Ce div est utiliser par le widget accordion
+                                                                                        Ne modifier pas son style
+                                                                                    -->                                                                                
+            <div>                                                                                        
+              <!-- l'algorithme -->                                                                                            
+              <div id="algo-recherche">                                                                                                    
+                <p>On parcourt séquentiellement le noeud où on se trouve. Si la valeur courante est la valeur recherchée, on a terminé.                                                                    
+                </p>                                                                                                    
+                <p>Si la valeur actuelle est inférieure, il ne reste qu'à chercher dans le i-éme fils.                                                                     
+                </p>                                                                                                    
+                <p>Sinon, c'est qu'elle est supérieure. Deux cas se présentent.                 
+                </p>                                 
+                <p>S'il y a encore une valeur dans le noeud on s'y rend et on réitère le processus.                                                                     
+                </p>                                 
+                <p>Par contre, s'il s'agissait de la dernière valeur du noeud il ne reste qu'à cherché dans le dernier fils.                                                                     
+                </p>                                           
+                <p>Si durant la recherche on doit recherché dans un fils à NULL, la valeur n'existe pas dans l'arbre. On retourne la position du fils et le noeud courant.                                   
+                </p>                                                                               
+              </div>                                                                            
+            </div>                        <h3>Insertion</h3>                                                                            
+            <!--
+                                                                                        Ce div est utiliser par le widget accordion
+                                                                                        Ne modifie pas son style
+                                                                                    -->                                                                                
+            <div>                                                                                        
+              <!-- l'algorithme -->                                                                                            
+              <div id="algo-insertion">                                                                                                    
+                <p>L'insertion utilise la recherche. Si la valeur n'existe pas, on peut l'insèrer. Soit P et i respectivement le noeud et la position retournés par la recherche.                                                                    
+                </p>                                                                                                    
+                <p>Si P est plein, on crée un nouveau noeud et on l'attache comme i-ème fils de P.                                                                      
+                </p>                                                                                                    
+                <p>Sinon, on insère directement à la i-ème position de P en faisant éventuellement des décalages.                                                                    
+                </p>                                                                                        
+              </div>                                                                            
+            </div>                        <h3>Suppression</h3>                                                                            
+            <!-- la meme note -->                                                                                
+            <div>                                                                                        
+              <div id="algo-suppresion">                                                                                                    
+                <p>La suppression use de la recherche. Elle est logique pour présérvé la propriété top-down.                                                               
+                </p>                                                                                                                                                                           
+              </div>                                                                            
+            </div>                                                                
+          </div>                                                                         
+        </div>                                        
+      </div>                                        
+      <!-- la zone des fenetres  -->                                            
+      <div style="display: none;">                                                     
+        <div id="aide">				 <br />				
+          <p>La fenêtre dans laquelle se déroule l’animation est comme suit :
+          </p>				<br />		         
+          <img src="../libs/Capture2.png"  style="margin:0 auto;display:block ;"/>				 
+          <p>				    <br />				    Pendant l’animation les boutons des opérations cédent leur places pour que d' 					autres (celui de l’affichage, du pseudo ou du commentaire et de la vitesse,…) apparaîssent.  					Comme la montre la figure : 					 				
+          </p>				 <br />				 
+          <img src="../libs/Capture2.1.png" style="margin:0 auto;display:block ;"/>                
+        </div>			                  
+        <div id="options">                    <h4>Zoom</h4>                                                                
+          <input id="options-zoom-auto" type="checkbox" />                                                                
+          <label for="options-zoom-auto">Redimentionner automatiquement la zone de l'animation                                            
+          </label>                    <h4>L'animation</h4>                                                                
+          <table>                                                   
+            <tbody>                                                                                    
+              <tr><td>                                                                                                        
+                  <input type="checkbox" checked="true" id="options-aff-algo" />                                                                                                        
+                  <label for="options-aff-algo">Afficher l'algorithme                                                                            
+                  </label>                        </td>                                                           
+              </tr>                                                                                    
+              <!--<tr><td>
+                                                                                                  <input type="checkbox" id="options-cacher-algo" />
+                                                                                                  <label for="options-cacher-algo">cacher l'algorithme aprés l'animation</label>
+                                                                                              </td></tr>-->                                                                                        
+              <tr><td>                                                                                                        
+                  <input type="checkbox" checked="true" id="options-aff-comment" />                                                                                                        
+                  <label for="options-aff-comment">Afficher les commentaires de l'animation                                                                            
+                  </label>                        </td>                                                           
+              </tr>                                                                        
+            </tbody>                                           
+          </table>                    <h4>La vitesse</h4>                                                                
+          <table>                                                   
+            <tbody>                                                                                    
+              <tr>                            <td>                                                                           
+                  <div id="options-vitesse">                                                                           
+                  </div></td>                            <td>                                                                           
+                  <div id="options-val-vitesse">x1                                                                            
+                  </div></td>                                                                                    
+              </tr>                                                                        
+            </tbody>                                           
+          </table>                                                                
+          <table>                                                   
+            <tbody>                                                                                    
+              <tr><td>                                                                                                        
+                  <input type="checkbox" id="options-vitesse-1" />                                                                                                        
+                  <label for="options-vitesse-1">Remettre la vitesse à 1 automatiquement                                                                            
+                  </label>                        </td>                                                           
+              </tr>                                                                        
+            </tbody>                                           
+          </table>                                                    
+        </div>                                                    
+        <div id="erreur"> Veuillez entrer une valeur numérique s'il vout plaît.                                                     
+        </div>                                                             
+        <div id="principe"> <h1>Les arbres m-aire  </h1>                                                              
+          <p>Les arbres m-aires sont une généralisation de la notion d'arbre binaire.                                            
+          </p>                                                            
+          <p>Chaque noeud peut contenir plusieurs valeurs séparées par un fils. Un fils pointe un sous arbre ne contenant que des quantités comprises entre les deux valeurs qu'il sépare.                                            
+          </p>                                                            
+          <p>La recherche deja trés rapide dans les arbres binaires est accélérée par sa propriètè top-down (Un noeud n'a de fils que s'il est lui même plein).                                            
+          </p>                                                            
+          <p>                                               
+          </p>                                                    
+        </div>                                                    
+        <div id="vide">                    L'arbre est pour le moment vide. Veuillez inserer des valeurs.                                                      
+        </div>                                        
+      </div>                            
+    </div>                            
+    </div>     
+<script src="../libs/modernizr.js"></script>          
+<script>
+            if (Modernizr.fontface && Modernizr.borderradius && Modernizr.boxshadow 
+                && Modernizr.opacity && Modernizr.rgba && Modernizr.textshadow 
+                && Modernizr.cssanimations && Modernizr.cssgradients && Modernizr.csstransforms 
+                && Modernizr.csstransitions && Modernizr.canvas){
+                Modernizr.load("../libs/jquery/jquery-ui-1.10.0.custom.css");
+                Modernizr.load("../libs/jquery/jquery-1.9.0.js");
+                Modernizr.load("../libs/jquery/jquery-ui-1.10.0.custom.js");
+                Modernizr.load("../libs/jquery/jquery.fullscreen.js");
+                Modernizr.load("../libs/lib.js");
+                Modernizr.load("../libs/ui.js");
+                Modernizr.load("m-aires.js");
+            } else {
+                document.body.style["background-color"] = "#CCC"; 
+                var e = document.getElementById('error');
+                e.style.display = "block";
+                e.style["background-color"] = "#EEE";
+            }
+        </script>                 
+  </body>
+</html>

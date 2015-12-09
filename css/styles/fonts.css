@@ -1,0 +1,266 @@
+body {font:13px/18px Arial, Helvetica, 'Nimbus Sans L', sans-serif;}
+
+li p {
+	font-size:13px;
+	line-height:18px;
+}
+
+input, textarea {font:13px/18px "Droid Sans", Helvetica, "Nimbus Sans L", sans-serif;}
+
+code {font:13px/18px Arial, Helvetica, 'Nimbus Sans L', sans-serif;}
+
+h1 {font:36px/54px "Open Sans", Helvetica, "Nimbus Sans L", sans-serif;}
+
+h2 {font:800 24px/36px "Open Sans", Helvetica, "Nimbus Sans L", sans-serif;}
+
+h3,
+.sitemap > li > a {font:22px/36px "Open Sans", Helvetica, "Nimbus Sans L", sans-serif;}
+
+h4, 
+#sidebar .widgettitle {font:18px/24px "Open Sans", Helvetica, "Nimbus Sans L", sans-serif;}
+
+h5 {font:italic 18px/24px "Open Sans", Helvetica, "Nimbus Sans L", sans-serif;}
+
+h6,
+.portfolio_inner .hover_effect .post_category a,
+.sitemap > li > ul > li > a,
+.cms_archive li {font:italic 14px/18px "Open Sans", Helvetica, "Nimbus Sans L", sans-serif;}
+
+small, 
+abbr {font:12px/18px Arial, Helvetica, 'Nimbus Sans L', sans-serif;}
+
+blockquote, 
+q, 
+.format-aside .entry-content {font:italic 18px/24px "Open Sans", Helvetica, "Nimbus Sans L", sans-serif;}
+
+q:after, blockquote:after {font-family:"Open Sans", Helvetica, "Nimbus Sans L", sans-serif;}
+
+span.dropcap,
+span.dropcap2 {font-family: "Open Sans", Helvetica, "Nimbus Sans L", sans-serif;}
+
+.button, 
+.button_medium, 
+.button_large, 
+.comment-reply-link,
+.tabs li a,
+.cmsms_comments {font-family:"Open Sans", Helvetica, "Nimbus Sans L", sans-serif;}
+
+#navigation > li > a {font:600 14px/20px "Open Sans", Helvetica, "Nimbus Sans L", sans-serif;}
+
+#navigation ul li a {font:600 13px/20px "Open Sans", Helvetica, "Nimbus Sans L", sans-serif;}
+
+
+/* Colors */
+
+/* ---------------------------------------------- Content Color */
+
+body,  
+a:hover,
+.jp-playlist-current a,
+.wp-pagenavi a,
+.cmsmsLike span {color:#808080;}
+
+input, 
+textarea {color:#808080;}
+
+.cmsmsLike {background-color:#cccccc;}
+
+.cont_nav,
+.cont_nav a {color:#ffffff;}
+
+/* ---------------------------------------------- Navigation Color */
+
+#navigation > li > a {
+	background-color:#313131;
+	color:#ffffff;
+}
+
+.nav_wrap_inner.navi_scrolled {background-color:#313131;}
+
+#navigation ul li a {
+	background-color:#313131;
+	color:#838383;
+}
+
+#navigation > li > ul {background-color:#313131;}
+
+#navigation ul li.current_page_item > a,
+#navigation ul li > a:hover,
+#navigation ul li:hover > a {
+	background-color:#252525;
+	color:#ffffff;
+}
+
+/* ---------------------------------------------- Buttons Colors */
+
+.cmsmsLike:hover, 
+.resp_navigation.active,
+.widget_custom_popular_portfolio_entries .cmsms_content_slider_parent ul.cmsms_slides_nav li.active a, 
+.widget_custom_popular_portfolio_entries .cmsms_content_slider_parent ul.cmsms_slides_nav li:hover a,
+.widget_custom_testimonials_entries .cmsms_content_slider_parent ul.cmsms_slides_nav li.active a, 
+.widget_custom_testimonials_entries .cmsms_content_slider_parent ul.cmsms_slides_nav li:hover a,
+.tp-bullets.simplebullets .bullet:hover, 
+.tp-bullets.simplebullets .bullet.selected,
+#slide_top {background-color:#ff9108;}
+
+/* ---------------------------------------------- Headings Colors */
+
+h1,
+.post .entry-title a,
+.post.format-link .entry-title a:hover {color:#565656;}
+
+h2 {color:#565656;}
+
+h3 {color:#565656;}
+
+h4 {color:#565656;}
+
+h5 {color:#565656;}
+
+h6,
+.portfolio_inner .entry-title a {color:#565656;}
+
+.color_2, 
+q:before, 
+blockquote:before, 
+q, 
+blockquote,
+.tog,
+.tog:hover,
+.tabs li a,
+.tour li a {color:#565656;}
+
+/* ---------------------------------------------- Links Colors */
+
+a, 
+.color_3,
+.post footer .published,
+.post .entry-title a:hover,
+.post.format-link .entry-title a,
+.cmsmsLike:hover span,
+.portfolio_inner .entry-title a:hover {color:#ff9108;}
+
+ul.cmsms_slides_nav li.active a, 
+ul.cmsms_slides_nav li:hover a,
+span.dropcap2,
+.tog:hover .cmsms_plus, 
+.tog.current .cmsms_plus,
+.tour li.current .cmsms_plus,
+.tour li a:hover .cmsms_plus,
+.cmsms_comments,
+.wp-pagenavi > span.current,
+.wp-pagenavi a:hover,
+.portfolio_inner .hover_effect {background-color:#ff9108;}
+
+.tabs li a.current {background:#ff9108;}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus,
+#bottom input:focus, 
+#bottom textarea:focus, 
+#bottom select:focus,
+.tabs > li a.current, 
+.wp-pagenavi > span.current,
+.wp-pagenavi a:hover {
+	border-color:#ff9108;
+}
+
+/* ---------------------------------------------- Slider colors */
+
+a.cmsms_close_video:hover {background-color:#ff9108;}
+
+.slideCaptionInnerBlock {
+	background:#000000;
+	background:rgba(0, 0, 0, .7);
+}
+
+.responsiveSlider, 
+.responsiveSlider h1, 
+.responsiveSlider h2, 
+.responsiveSlider h3, 
+.responsiveSlider h4, 
+.responsiveSlider h5, 
+.responsiveSlider h6 {color:#ffffff;}
+
+.responsiveSlider h1 {
+	font-size:30px;
+	line-height:36px;
+}
+
+/* ---------------------------------------------- Revolution Slider */
+
+.fullwidthbanner h1 {
+	font:36px/36px "Open Sans", Helvetica, "Nimbus Sans L", sans-serif;
+	color:#3a3a3a;
+}
+
+.fullwidthbanner h2 {
+	font:800 36px/36px "Open Sans", Helvetica, "Nimbus Sans L", sans-serif;
+	color:#3a3a3a;
+}
+
+.fullwidthbanner h3 {font:800 72px/72px "Open Sans", Helvetica, "Nimbus Sans L", sans-serif;}
+
+/* ---------------------------------------------- Bottom and Footer Colors */
+
+#bottom, 
+#bottom a:hover {color:#817e75;}
+
+#bottom h1 {color:#ffffff;}
+
+#bottom h2 {color:#ffffff;}
+
+#bottom h3 {color:#ffffff;}
+
+#bottom h4 {color:#ffffff;}
+
+#bottom h5 {color:#ffffff;}
+
+#bottom h6 {color:#ffffff;}
+
+#bottom .color_2 {color:#ffffff;}
+
+#footer,
+#footer a {color:#808080;}
+
+
+/* ---------- Small Monitor (Note: Design for a width less than 1024px) ---------- */
+
+@media only screen and (max-width: 1023px) {
+	
+	.responsiveSlider h1 {
+		font-size:1.5em;
+		line-height:1.2em;
+	}
+	
+	.portfolio_inner .hover_effect .post_category a {font-size:.9em;}
+	
+	.portfolio_inner .hover_effect .entry-title {font-size:1.1em;}
+	
+}
+
+/* ---------- Small Tablet & Mobile (Note: Design for a width less than 541px) ---------- */
+
+@media only screen and (max-width: 540px) {
+
+	.responsibe_block_inner {border-color:#ff9108;}
+	
+	#navigation > li > ul {background:none;}
+	
+	#navigation > li > a,
+	#navigation ul li a{
+		background-color:#ffffff;
+		color:#3c3c3c;
+		font-weight:normal;
+		font-style:italic;
+	}
+	
+	#navigation ul li.current_page_item a, 
+	#navigation ul li a:hover, 
+	#navigation ul li:hover > a {
+		background-color:#fcfcfc;
+		color:#3c3c3c;
+	}
+	
+}
